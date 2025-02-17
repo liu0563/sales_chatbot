@@ -1,0 +1,12 @@
+.*
+!.gitignore
+.ipynb_checkpoints/
+__pycache__/
+.lock
+.env
+meta.json
+*.pyc
+*.pkl
+*-checkpoint.*
+*.sqlite
+notebooks/flagged/
