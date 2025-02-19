@@ -8,10 +8,12 @@ This project simulates a RAG-based QA chatbot designed to assist car dealership 
 - **Qdrant**: Vector database for efficient similarity search and retrieval
 - **Gradio**: User interface framework for deploying the chatbot
 - **lmdeploy**: Lightweight model deployment framework
+- **Crawl4AI**: A web crawler for scraping LLM-ready data
 - **bge embedder and reranker**: Embedding and reranking models
 
 ## **Key Features**
 - **Retrieval-Augmented Generation (RAG)**: Combines retrieval of relevant documents with generative models to produce accurate and context-aware responses
+- **Crawl4AI**: Designed a pipeline to scrape, clean, and extract car reviews from Edmunds.com
 - **Gradio UI**: Provides an intuitive and user-friendly interface for interacting with the chatbot
 - **Scalable Data Handling**: Utilizes Qdrant vector stores to efficiently store and manage, and accurately retrieve large-scale text data
 
