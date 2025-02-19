@@ -3,9 +3,6 @@ import os
 import sys
 import time
 
-# Add the path to your RAG modules
-sys.path.append('/root/data_disk/src')
-
 from src.retriever import Retriever
 from src.LLM_utils import LLM
 from src.prompt import generate_prompt

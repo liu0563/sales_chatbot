@@ -7,15 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-import os
-from typing import Optional, List
-
-from openai import OpenAI
-from lmdeploy import pipeline, TurbomindEngineConfig
-from dotenv import load_dotenv
-
-load_dotenv()
-
 class LLM:
     def __init__(self,model_id: str, 
                  api_key: Optional[str] = None, 
