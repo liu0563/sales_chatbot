@@ -2,7 +2,7 @@
 
 # Car Dealership Sales QA Bot
 
-This project simulates a RAG-based QA chatbot designed to assist car dealership customers with their sales-related inquiries. This project is still under active development, with plans to incorporate fine-tuning and Text2SQL modules in the future.
+This project builds on a previous RAG-based QA chatbot developed to assist car dealership customers with sales inquiries. It is currently in active development, with future plans to integrate fine-tuning and Text2SQL modules.
 
 ## **Tech Stack**
 - **Qdrant**: Vector database for efficient similarity search and retrieval
