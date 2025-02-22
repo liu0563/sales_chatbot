@@ -10,6 +10,7 @@ This project builds on a previous RAG-based QA chatbot developed to assist car d
 - **lmdeploy**: Lightweight model deployment framework
 - **Crawl4AI**: A web crawler for scraping LLM-ready data
 - **bge embedder and reranker**: Embedding and reranking models
+- **LLM Models**: Qwen-0.5B-instruct, Qwen-3B-instruct, and DeepSeek-V3 for generating responses and query understanding and decomposition
 
 ## **Key Features**
 - **Retrieval-Augmented Generation (RAG)**: Combines retrieval of relevant documents with generative models to produce accurate and context-aware responses
