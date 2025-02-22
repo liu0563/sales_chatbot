@@ -1,12 +1,14 @@
 
-import os
+import os,sys
+sys.path.append('/root/car_sales_QA/src')
+
 import subprocess
 from qdrant_client import QdrantClient
 
 import pandas as pd
 from FlagEmbedding import BGEM3FlagModel,FlagReranker
 from dotenv import load_dotenv
-from src.utils import set_proxy
+from utils import set_proxy
 
 load_dotenv()
 

@@ -43,10 +43,30 @@ def rag_response(query, history):
 
 # Gradio app
 with gr.Blocks() as demo:
-    chatbot = gr.Chatbot(type="messages")
-    msg = gr.Textbox()
-    clear = gr.Button("Clear")
+    gr.Markdown("# 🚗 Car Dealership AI Assistant")
+    gr.Markdown(
+        "This chatbot assists with **car dealership inquiries**, including sales, service, and inventory questions. "
+        "It uses a **Retrieval-Augmented Generation (RAG)** model to fetch relevant information before responding."
+    )
 
+    chatbot = gr.Chatbot(type="messages", label="Chat with AI Assistant")
+    msg = gr.Textbox(
+        placeholder="Type your question here...",
+        label="Your Message",
+    )
+    clear = gr.Button("Clear Chat")
+    
+    # Example prompts
+    examples = gr.Examples(
+        examples=[
+            "What cars are available in the inventory?",
+            "Can I book a service appointment?",
+            "Tell me about the financing options.",
+            "What are the dealership hours?",
+        ],
+        inputs=[msg],
+    )
+    
     def user(user_message, history: list):
         return "", history + [{"role": "user", "content": user_message}]
         
@@ -55,19 +75,21 @@ with gr.Blocks() as demo:
         response = rag_response(user_message, history)
         
         assistant_response = ""
+        history.append({"role": "assistant", "content": assistant_response})
         for chunk in response:  # Stream the response
             assistant_response += chunk
             # Update the assistant's message in place
             history[-1]["content"] = assistant_response
             yield history
-        history.append({"role": "assistant", "content": assistant_response})
+        
         time.sleep(0.05)  # Simulate typing
             
 
     msg.submit(user, [msg, chatbot], [msg, chatbot], queue=False).then(
         bot, chatbot, chatbot
     )
-    clear.click(lambda: None, None, chatbot, queue=False)
+    #clear.click(lambda: None, None, chatbot, queue=False)
+    clear.click(lambda: [], None, chatbot, queue=False)
 
 if __name__ == "__main__":
-    demo.launch(server_port = 6006)
+    demo.launch(server_port = 6006,live=True)
