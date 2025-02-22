@@ -54,7 +54,7 @@ with gr.Blocks() as demo:
         placeholder="Type your question here...",
         label="Your Message",
     )
-    clear = gr.Button("Clear Chat")
+    clear = gr.Button("Clear")
     
     # Example prompts
     examples = gr.Examples(
