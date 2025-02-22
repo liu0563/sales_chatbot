@@ -30,3 +30,7 @@ This project builds on a previous RAG-based QA chatbot developed to assist car d
   - **`prompt.py`**: Functions for generating and managing prompts for the language model
 - **`notebooks`**: Development and testing notebooks for experimenting with and refining the chatbot's functionality
 
+
+https://github.com/user-attachments/assets/f7de3384-4abf-4e9a-9bb7-868de942aabb
+
+
