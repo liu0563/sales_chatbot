@@ -1,8 +1,31 @@
 from typing import Optional, List
 
 
-def generate_prompt(prompt_type: str, query: str, history: List[dict], reranked_chunks: Optional[List] = None, top_k_chunks: int = 5, past_k_rounds: int = 5):
-    if prompt_type == 'rewrite':
+def generate_prompt(prompt_type: str, query: str, history: List[dict] = [], reranked_chunks: Optional[List] = [], top_k_chunks: int = 5, past_k_rounds: int = 5):
+    if prompt_type == 'classifier':
+        p = f"""
+                You are a sales assistant at a car dealership. Your task is to determine whether the user's query is related to purchasing a car. If the query is related to car purchase, respond                 with "yes" Otherwise, respond with "no"
+                
+                ### Examples:
+                1. User Query: "What are the financing options for a new SUV?"
+                   Output: yes
+                
+                2. User Query: "Do you offer test drives for the latest models?"
+                   Output: yes
+                
+                3. User Query: "Where is your dealership located?"
+                   Output: no
+                
+                4. User Query: "Can I schedule a service appointment for my car?"
+                   Output: no
+                
+                ### User Query:
+                {query}
+                
+                ### Output:
+            """
+
+    elif prompt_type == 'rewrite':
         # Extract relevant conversation history for rewrite prompt
         user_query_history = "\n".join(
             f"- User: {history[i*2]['content']}" for i in range(min(len(history)//2, past_k_rounds))
