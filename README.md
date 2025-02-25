@@ -18,18 +18,6 @@ This project builds on a previous RAG-based QA chatbot developed to assist car d
 - **Gradio UI**: Provides an intuitive and user-friendly interface for interacting with the chatbot
 - **Scalable Data Handling**: Utilizes Qdrant vector stores to efficiently store and manage, and accurately retrieve large-scale text data
 
-## **File Structure**
-- **`chatbot.py`**: The main script to run the chatbot with a Gradio-based user interface
-- **`data`**: Scrapped and preprocessed data to store in vector database:
-  - **Car manuals**: Example: `2015-Nissan-Quest-owner-manual.md`
-  - **Pickle files**: Serialized car review data, such as `bmw.pkl` and `ford.pkl`
-  - **CSV files**: Queries and tickets data, such as `car_queries.csv`
-- **`src`**: Core source code for the chatbot:
-  - **`LLM_utils.py`**: Utility functions for interfacing with large language models
-  - **`retriever.py`**: Logic for retrieving relevant information from the dataset
-  - **`prompt.py`**: Functions for generating and managing prompts for the language model
-- **`notebooks`**: Development and testing notebooks for experimenting with and refining the chatbot's functionality
-
 
 https://github.com/user-attachments/assets/f7de3384-4abf-4e9a-9bb7-868de942aabb
 
