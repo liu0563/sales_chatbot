@@ -2,7 +2,7 @@ import os
 from typing import Optional, List
 
 from openai import OpenAI
-from lmdeploy import pipeline, TurbomindEngineConfig
+from lmdeploy import pipeline, TurbomindEngineConfig, GenerationConfig
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,9 +21,17 @@ class LLM:
             backend_config = TurbomindEngineConfig(cache_max_entry_count=0.2)
             self.llm = pipeline(model_id,backend_config=backend_config)
             
-    def __call__(self, prompt):                
+    def __call__(self, prompts, max_new_tokens=1024,
+                    top_p=0.8,
+                    top_k=40,
+                    temperature=0.6):                
         if self.llm:
-            return self.llm(prompt).text
+            return self.llm(prompts,gen_config=GenerationConfig(
+                    max_new_tokens=max_new_tokens,
+                    top_p=top_p,
+                    top_k=top_k,
+                    temperature=temperature
+                ))
         elif self.api_key:
             client = OpenAI(api_key=self.api_key, base_url= self.base_url)
             
